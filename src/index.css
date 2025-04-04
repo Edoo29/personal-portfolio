@@ -3,6 +3,8 @@
 
 :root {
   --color-shadows: #aaaaaa;
+  --background-color: #07090e;
+  --purple: #625dd1;
 }
 
 * {
@@ -11,9 +13,30 @@
 }
 
 body {
-  background: var(--color-shadows);
+  background-color: var(--background-color);
 }
 
 .border-glass {
   border: solid 2px rgba(255, 255, 255, 0.2);
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(#ffffff, #07090e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-glowing:hover {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff, 0 0 80px #fff,
+    0 0 120px #fff;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }
