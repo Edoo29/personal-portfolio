@@ -1,4 +1,3 @@
-import "./toggle-button.css";
 import { useTranslation } from "react-i18next";
 import Translate from "./translate";
 
@@ -8,12 +7,6 @@ type NavbarItems = {
 };
 
 function Navbar() {
-  const { t, i18n } = useTranslation();
-
-  const handleTranslation = (code: string) => {
-    i18n.changeLanguage(code);
-  };
-
   const navbarItems: NavbarItems[] = [
     {
       label: "home",
@@ -45,21 +38,30 @@ function Navbar() {
           ))}
         </ul>
         <div className="flex gap-5 absolute right-0 top-0 mt-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md">
-          <button
-            onClick={() => handleTranslation("en")}
-            className="cursor-pointer hover:underline"
-          >
-            <Translate text="english" />
-          </button>
-          <button
-            onClick={() => handleTranslation("it")}
-            className="cursor-pointer hover:underline"
-          >
-            <Translate text="italian" />
-          </button>
+          <Toggle language="English" />
+          <Toggle language="Italian" />
         </div>
       </nav>
     </>
+  );
+}
+
+function Toggle({ language }: { language: string }) {
+  const { t, i18n } = useTranslation();
+
+  const handleTranslation = (code: string) => {
+    i18n.changeLanguage(code);
+  };
+
+  return (
+    <button
+      onClick={() =>
+        handleTranslation(language.slice(0, 2).toLocaleLowerCase())
+      }
+      className="cursor-pointer hover:underline"
+    >
+      <Translate text={language} />
+    </button>
   );
 }
 
