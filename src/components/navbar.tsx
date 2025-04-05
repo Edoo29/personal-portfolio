@@ -72,6 +72,35 @@ function Navbar() {
             />
           </div>
         </nav>
+        <nav className="flex md:hidden text-[var(--color-shadows)]">
+          <a
+            href="https://github.com/Edoo29"
+            target="_blank"
+            rel="noreferrer"
+            title="My GitHub profile link"
+            className="flex gap-5 fixed left-0 bottom-0 mb-5 ml-5 p-3 border-glass rounded-xl backdrop-blur-md z-10 glowing-effect cursor-pointer"
+          >
+            <Github />
+          </a>
+          <div className="flex gap-5 fixed right-0 bottom-0 mb-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md z-10">
+            <Toggle
+              customOnClick={() => {
+                setItalian(!italian);
+                setEnglish(!english);
+              }}
+              customClass={english ? "text-white" : ""}
+              language="English"
+            />
+            <Toggle
+              customOnClick={() => {
+                setEnglish(!english);
+                setItalian(!italian);
+              }}
+              customClass={italian ? "text-white" : ""}
+              language="Italian"
+            />
+          </div>
+        </nav>
       </LoadAnimation>
     </>
   );
