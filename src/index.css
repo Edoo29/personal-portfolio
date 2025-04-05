@@ -3,8 +3,9 @@
 
 :root {
   --color-shadows: #aaaaaa;
-  --background-color: #07090e;
+  --black: #18181b;
   --purple: #625dd1;
+  --blue: #242445;
 }
 
 * {
@@ -13,7 +14,14 @@
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--black);
+}
+
+#home,
+#projects {
+  background-image: linear-gradient(var(--blue) 0.1em, transparent 0.1em),
+    linear-gradient(90deg, var(--blue) 0.1em, transparent 0.1em);
+  background-size: 5em 5em;
 }
 
 .border-glass {
