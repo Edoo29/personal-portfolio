@@ -66,7 +66,7 @@ function ShowEmailButton() {
       onClick={handleClick}
     >
       <p>
-        ⚠️ <Translate text="notAvailable " /> ⚠️
+        ⚠️ <Translate text="notAvailable" /> ⚠️
       </p>
       {showEmail ? (
         <a href="example@gmail.com">example@gmail.com</a>

@@ -31,7 +31,7 @@ function Navbar() {
 
     {
       label: "contact",
-      href: "#contact",
+      href: "#contact-me",
     },
   ];
 
