@@ -45,7 +45,7 @@ i18n.use(initReactI18next).init({
         contactMeClickOne: "Click me ",
         contactMeClickTwo: " times to send me an email.",
         goBack: "Go back",
-        notAvailable: "⚠️ I am not available to work for the moment ⚠️",
+        notAvailable: "I am not available to work for the moment",
       },
     },
     it: {
@@ -84,7 +84,7 @@ i18n.use(initReactI18next).init({
         contactMeClickOne: "Cliccami ",
         contactMeClickTwo: " volte per mandarmi un'email.",
         goBack: "Torna su",
-        notAvailable: "⚠️ Non sono disponibile a lavorare per il momento ⚠️",
+        notAvailable: "Non sono disponibile a lavorare per il momento",
       },
     },
   },
