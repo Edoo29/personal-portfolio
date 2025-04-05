@@ -2,28 +2,31 @@ import { useState } from "react";
 import Arrow from "./arrow";
 import LoadAnimation from "./load-animation";
 import Translate from "./translate";
+import CopyrightBanner from "./copyright-banner";
 
 function ContactMe() {
   return (
-    <div
-      id="contact-me"
-      className="flex flex-col items-center justify-center gap-6 p-3 h-screen"
-    >
-      <div className="flex flex-col gap-3 justify-center items-center">
-        <LoadAnimation animateWhenVisible>
-          <ContactMeTitle />
+    <>
+      <div className="flex flex-col items-center justify-center gap-6 p-3 h-screen">
+        <div className="flex flex-col gap-3 justify-center items-center">
+          <LoadAnimation animateWhenVisible>
+            <ContactMeTitle />
+          </LoadAnimation>
+          <LoadAnimation animateWhenVisible delay={0.2}>
+            <ContactMeDescription />
+          </LoadAnimation>
+        </div>
+        <LoadAnimation animateWhenVisible delay={0.4}>
+          <ShowEmailButton />
         </LoadAnimation>
-        <LoadAnimation animateWhenVisible delay={0.2}>
-          <ContactMeDescription />
+        <LoadAnimation animateWhenVisible delay={0.6}>
+          <GoBack />
         </LoadAnimation>
       </div>
-      <LoadAnimation animateWhenVisible delay={0.4}>
-        <ShowEmailButton />
-      </LoadAnimation>
-      <LoadAnimation animateWhenVisible delay={0.6}>
-        <GoBack />
-      </LoadAnimation>
-    </div>
+      <div id="contact-me">
+        <CopyrightBanner />
+      </div>
+    </>
   );
 }
 
