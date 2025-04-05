@@ -8,7 +8,7 @@ type TranslateProps = {
 function Translate({ text, customClass }: TranslateProps) {
   const { t } = useTranslation();
 
-  return <div className={customClass}>{t(text)}</div>;
+  return <span className={customClass}>{t(text)}</span>;
 }
 
 export default Translate;

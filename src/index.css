@@ -32,6 +32,10 @@ body {
     0 0 120px #fff;
 }
 
+.glowing-effect:hover {
+  box-shadow: 0 0 30px #9a76ff;
+}
+
 ::-webkit-scrollbar {
   width: 0;
   background: transparent;

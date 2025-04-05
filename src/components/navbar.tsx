@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Translate from "./translate";
+import LoadAnimation from "./load-animation";
 
 type NavbarItems = {
   label: string;
@@ -31,17 +32,19 @@ function Navbar() {
 
   return (
     <>
-      <nav className="hidden md:flex text-[var(--color-shadows)]">
-        <ul className="flex gap-7 justify-center mx-auto fixed z-10 top-0 left-1/2 transform -translate-x-1/2 p-3 mt-5 border-glass rounded-xl backdrop-blur-md">
-          {navbarItems.map((item) => (
-            <NavbarElement key={item.label} {...item} />
-          ))}
-        </ul>
-        <div className="flex gap-5 absolute right-0 top-0 mt-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md">
-          <Toggle language="English" />
-          <Toggle language="Italian" />
-        </div>
-      </nav>
+      <LoadAnimation delay={0.2}>
+        <nav className="hidden md:flex text-[var(--color-shadows)]">
+          <ul className="flex gap-7 justify-center mx-auto fixed z-10 top-0 left-1/2 transform -translate-x-1/2 p-3 mt-5 border-glass rounded-xl backdrop-blur-md">
+            {navbarItems.map((item) => (
+              <NavbarElement key={item.label} {...item} />
+            ))}
+          </ul>
+          <div className="flex gap-5 fixed right-0 top-0 mt-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md">
+            <Toggle language="English" />
+            <Toggle language="Italian" />
+          </div>
+        </nav>
+      </LoadAnimation>
     </>
   );
 }
