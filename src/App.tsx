@@ -1,16 +1,23 @@
 import About from "./components/about.tsx";
+import ContactMe from "./components/contact-me.tsx";
 import Hero from "./components/hero.tsx";
+import MorphBg from "./components/morph-bg.tsx";
 import Navbar from "./components/navbar.tsx";
-import useParticles from "./hooks/useParticles.tsx";
+import Projects from "./components/projects.tsx";
+import ScrollProgress from "./components/scroll-progress.tsx";
 
 function App() {
-  const particles = useParticles();
   return (
     <>
       <Navbar />
+      <ScrollProgress />
       <Hero />
+      <MorphBg />
       <About />
-      {particles}
+      <MorphBg />
+      <Projects />
+      <MorphBg />
+      <ContactMe />
     </>
   );
 }

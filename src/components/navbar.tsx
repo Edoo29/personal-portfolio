@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import Translate from "./translate";
 import LoadAnimation from "./load-animation";
+import { useState } from "react";
 
 type NavbarItems = {
   label: string;
@@ -8,6 +9,9 @@ type NavbarItems = {
 };
 
 function Navbar() {
+  const [english, setEnglish] = useState<boolean>(true);
+  const [italian, setItalian] = useState<boolean>(false);
+
   const navbarItems: NavbarItems[] = [
     {
       label: "home",
@@ -39,9 +43,23 @@ function Navbar() {
               <NavbarElement key={item.label} {...item} />
             ))}
           </ul>
-          <div className="flex gap-5 fixed right-0 top-0 mt-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md">
-            <Toggle language="English" />
-            <Toggle language="Italian" />
+          <div className="flex gap-5 fixed right-0 top-0 mt-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md z-10">
+            <Toggle
+              customOnClick={() => {
+                setItalian(!italian);
+                setEnglish(!english);
+              }}
+              customClass={english ? "text-white" : ""}
+              language="English"
+            />
+            <Toggle
+              customOnClick={() => {
+                setEnglish(!english);
+                setItalian(!italian);
+              }}
+              customClass={italian ? "text-white" : ""}
+              language="Italian"
+            />
           </div>
         </nav>
       </LoadAnimation>
@@ -49,7 +67,15 @@ function Navbar() {
   );
 }
 
-function Toggle({ language }: { language: string }) {
+function Toggle({
+  language,
+  customClass,
+  customOnClick,
+}: {
+  language: string;
+  customClass?: string;
+  customOnClick: () => void;
+}) {
   const { t, i18n } = useTranslation();
 
   const handleTranslation = (code: string) => {
@@ -58,10 +84,11 @@ function Toggle({ language }: { language: string }) {
 
   return (
     <button
-      onClick={() =>
-        handleTranslation(language.slice(0, 2).toLocaleLowerCase())
-      }
-      className="cursor-pointer hover:underline"
+      onClick={() => {
+        customOnClick();
+        handleTranslation(language.slice(0, 2).toLocaleLowerCase());
+      }}
+      className={`${customClass} cursor-pointer hover:underline`}
     >
       <Translate text={language} />
     </button>

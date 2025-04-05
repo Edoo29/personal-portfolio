@@ -9,19 +9,19 @@ function Hero() {
       id="home"
       className="flex flex-col gap-3 justify-center items-center h-screen"
     >
-      <LoadAnimation delay={0.5} animateWhenVisible>
+      <LoadAnimation delay={0.2} animateWhenVisible>
         <Header />
       </LoadAnimation>
-      <LoadAnimation delay={1} animateWhenVisible>
+      <LoadAnimation delay={0.5} animateWhenVisible>
         <IntroText />
       </LoadAnimation>
-      <LoadAnimation delay={1.5} animateWhenVisible>
+      <LoadAnimation delay={0.8} animateWhenVisible>
         <Subtitle />
       </LoadAnimation>
-      <LoadAnimation delay={2} animateWhenVisible>
+      <LoadAnimation delay={1.1} animateWhenVisible>
         <Description />
       </LoadAnimation>
-      <LoadAnimation delay={2.5} animateWhenVisible>
+      <LoadAnimation delay={1.4} animateWhenVisible>
         <Arrow direction="down" reference="#about" customClass="mt-24">
           <Translate text="arrowOne" />
         </Arrow>
