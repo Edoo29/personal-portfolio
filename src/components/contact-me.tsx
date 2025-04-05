@@ -6,7 +6,7 @@ import Translate from "./translate";
 function ContactMe() {
   return (
     <div
-      id="projects"
+      id="contact-me"
       className="flex flex-col items-center justify-center gap-6 p-3 h-screen"
     >
       <div className="flex flex-col gap-3 justify-center items-center">
