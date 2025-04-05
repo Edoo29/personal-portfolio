@@ -115,7 +115,7 @@ function Toggle({
   customClass?: string;
   customOnClick: () => void;
 }) {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const handleTranslation = (code: string) => {
     i18n.changeLanguage(code);

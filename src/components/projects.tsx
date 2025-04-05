@@ -45,7 +45,7 @@ function ProjectsList() {
 
 function GetInTouch() {
   return (
-    <Arrow direction="down" reference="#contact" customClass="mt-24">
+    <Arrow direction="down" reference="#projects" customClass="mt-24">
       <Translate text="getInTouch" />
     </Arrow>
   );
