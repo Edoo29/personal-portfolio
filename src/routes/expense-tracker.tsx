@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import CopyrightBanner from "../components/copyright-banner";
+import { MoveLeft } from "lucide-react";
 
 function ExpenseTracker() {
   return (
-    <div>
-      <div className="text-white p-3 cursor-pointer fixed left-0 top-1">
-        <Link className="hover:underline" to={"/"}>
-          Go back
+    <>
+      <div className="p-3">
+        <Link
+          className="flex gap-2 absolute text-[var(--color-shadows)] hover:text-white"
+          to={"/"}
+        >
+          <MoveLeft />
+          Back
         </Link>
       </div>
-      <div className="flex flex-col items-center justify-center mt-15 p-3 gap-5">
+      <div className="flex flex-col items-center justify-center mt-5 p-3 gap-5">
         <h1 className="text-4xl text-white font-bold">Expense Tracker</h1>
         <section className="text-center text-[var(--color-shadows)]">
           <p>
@@ -22,48 +27,41 @@ function ExpenseTracker() {
           Next.js + TypeScript + TailwindCSS
         </p>
       </div>
-      <div className="mt-10">
-        <p className="text-2xl text-white text-center mt-3 mb-5">
-          Different colorschemes
-        </p>
+      <div className="mt-5">
         <ShowImages />
       </div>
       <p className="text-white text-center p-10">
         ⚠️ Unfortunately, I lost the source code and I can't show you the
         dashboard preview, sorry ⚠️
       </p>
-      <CopyrightBanner />
-    </div>
+      <CopyrightBanner customClass="md:bottom-0" />
+    </>
   );
 }
 
 function ShowImages() {
   return (
-    <div className="flex flex-col gap-10 md:p-10">
-      <div className="flex gap-10 justify-start">
-        <img
-          className="h-54 lg:h-70 rounded"
-          src="./blue.png"
-          alt="Blue theme preview"
-        />
-        <img
-          className="h-54 lg:h-70 rounded"
-          src="./yellow.png"
-          alt="Yellow theme preview"
-        />
-      </div>
-      <div className="flex gap-10 justify-end">
-        <img
-          className="h-54 lg:h-70 rounded"
-          src="./green.png"
-          alt="Green theme preview"
-        />
-        <img
-          className="h-54 lg:h-70 rounded"
-          src="./purple.png"
-          alt="Purple theme preview"
-        />
-      </div>
+    <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:p-10">
+      <img
+        className="h-40 lg:h-54 rounded"
+        src="./blue.png"
+        alt="Blue theme preview"
+      />
+      <img
+        className="h-40 lg:h-54 rounded"
+        src="./yellow.png"
+        alt="Yellow theme preview"
+      />
+      <img
+        className="h-40 lg:h-54 rounded"
+        src="./green.png"
+        alt="Green theme preview"
+      />
+      <img
+        className="h-40 lg:h-54 rounded"
+        src="./purple.png"
+        alt="Purple theme preview"
+      />
     </div>
   );
 }
