@@ -5,11 +5,11 @@
   --color-shadows: #aaaaaa;
   --black: #070707;
   --purple: #625dd1;
+  --dark-purple: #454195;
   --blue: #242445;
 }
 
 * {
-  font-family: "Roboto", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   scroll-behavior: smooth;
 }
 

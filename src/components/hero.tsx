@@ -33,7 +33,11 @@ function Hero() {
 function Header() {
   return (
     <motion.h1
-      whileHover={{ x: 50, rotate: 20, transition: { duration: 0.5 } }}
+      whileHover={{
+        x: 50,
+        rotate: 20,
+        transition: { duration: 0.5 },
+      }}
       whileTap={{ scale: 1.2 }}
       className="text-[var(--purple)] text-xl md:text-2xl cursor-default"
     >

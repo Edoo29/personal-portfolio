@@ -1,19 +1,18 @@
-import About from "./components/about.tsx";
-import ContactMe from "./components/contact-me.tsx";
-import Hero from "./components/hero.tsx";
-import Navbar from "./components/navbar.tsx";
-import Projects from "./components/projects.tsx";
-import ScrollProgress from "./components/scroll-progress.tsx";
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./routes/homepage";
+import ExpenseTracker from "./routes/expense-tracker";
+import ScrollProgress from "./components/scroll-progress";
+import Boilerflow from "./routes/boilerflow";
 
 function App() {
   return (
     <>
-      <Navbar />
       <ScrollProgress />
-      <Hero />
-      <About />
-      <Projects />
-      <ContactMe />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/expense-tracker" element={<ExpenseTracker />} />
+        <Route path="/boilerflow" element={<Boilerflow />} />
+      </Routes>
     </>
   );
 }

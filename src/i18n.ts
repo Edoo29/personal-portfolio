@@ -46,6 +46,11 @@ i18n.use(initReactI18next).init({
         contactMeClickTwo: " times to send me an email.",
         goBack: "Go back",
         notAvailable: "I am not available to work for the moment",
+        expenseTrackerDescription:
+          "A simple expense tracker dashboard with login system",
+        boilerflowDescription:
+          "Boilerflow is a CLI tool which contains a lot of useful boilerplates",
+        readMore: "Read more",
       },
     },
     it: {
@@ -85,6 +90,11 @@ i18n.use(initReactI18next).init({
         contactMeClickTwo: " volte per mandarmi un'email.",
         goBack: "Torna su",
         notAvailable: "Non sono disponibile a lavorare per il momento",
+        expenseTrackerDescription:
+          "Un dashboard semplice per il tracciamento delle spese con sistema di login",
+        boilerflowDescription:
+          "Boilerflow è un tool CLI che contiene molti boileplate utili",
+        readMore: "Scopri di più",
       },
     },
   },
