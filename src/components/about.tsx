@@ -21,14 +21,14 @@ function About() {
       id="about"
       className="flex flex-col h-screen justify-center text-center items-center gap-3 p-3"
     >
-      <LoadAnimation animateWhenVisible>
+      <LoadAnimation animateWhenVisible delay={0.2}>
         <AboutMeHeader />
       </LoadAnimation>
-      <LoadAnimation delay={0.2} animateWhenVisible>
+      <LoadAnimation delay={0.4} animateWhenVisible>
         <AboutMeDescription />
       </LoadAnimation>
       <ImagesComponent />
-      <LoadAnimation delay={0.5} animateWhenVisible>
+      <LoadAnimation delay={0.6} animateWhenVisible>
         <GoNextSection />
       </LoadAnimation>
     </div>

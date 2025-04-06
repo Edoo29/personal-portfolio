@@ -12,16 +12,16 @@ function Hero() {
       <LoadAnimation delay={0.2} animateWhenVisible>
         <Header />
       </LoadAnimation>
-      <LoadAnimation delay={0.5} animateWhenVisible>
+      <LoadAnimation delay={0.4} animateWhenVisible>
         <IntroText />
       </LoadAnimation>
-      <LoadAnimation delay={0.8} animateWhenVisible>
+      <LoadAnimation delay={0.6} animateWhenVisible>
         <Subtitle />
       </LoadAnimation>
-      <LoadAnimation delay={1.1} animateWhenVisible>
+      <LoadAnimation delay={0.8} animateWhenVisible>
         <Description />
       </LoadAnimation>
-      <LoadAnimation delay={1.4} animateWhenVisible>
+      <LoadAnimation delay={1} animateWhenVisible>
         <Arrow direction="down" reference="#about" customClass="mt-24">
           <Translate text="arrowOne" />
         </Arrow>
