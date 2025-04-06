@@ -1,11 +1,5 @@
 import { MoveDown, MoveUp } from "lucide-react";
-
-type ArrowProps = {
-  children: React.ReactNode;
-  customClass?: string;
-  reference?: string;
-  direction: "up" | "down";
-};
+import { ArrowProps } from "../types";
 
 export default function Arrow({
   children,
@@ -16,6 +10,7 @@ export default function Arrow({
   return (
     <a
       href={reference}
+      aria-label="Scroll to the next section"
       className={`hidden md:flex gap-1 cursor-pointer hover:underline ${customClass} text-[var(--purple)]`}
     >
       {direction === "up" ? <MoveUp /> : <MoveDown />}

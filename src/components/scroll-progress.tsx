@@ -1,6 +1,6 @@
 import { motion, useScroll, useSpring } from "motion/react";
 
-function ScrollProgress() {
+export default function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress);
 
@@ -20,5 +20,3 @@ function ScrollProgress() {
     />
   );
 }
-
-export default ScrollProgress;

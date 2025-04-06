@@ -1,6 +1,10 @@
 import { Copyright } from "lucide-react";
 
-function CopyrightBanner({ customClass }: { customClass?: string }) {
+export default function CopyrightBanner({
+  customClass,
+}: {
+  customClass?: string;
+}) {
   return (
     <div
       className={`${customClass} w-full p-3 flex items-center justify-center gap-3 bg-black absolute z-50`}
@@ -12,5 +16,3 @@ function CopyrightBanner({ customClass }: { customClass?: string }) {
     </div>
   );
 }
-
-export default CopyrightBanner;

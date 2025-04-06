@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function Boilerflow() {
+export default function Boilerflow() {
   return (
     <div className="text-white">
       <Link to={"/"}>Go back</Link>
@@ -8,5 +8,3 @@ function Boilerflow() {
     </div>
   );
 }
-
-export default Boilerflow;

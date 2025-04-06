@@ -3,37 +3,33 @@ import Translate from "./translate";
 import LoadAnimation from "./load-animation";
 import { useState } from "react";
 import { Github } from "lucide-react";
+import { NavbarItems, ToggleProps } from "../types";
 
-type NavbarItems = {
-  label: string;
-  href: string;
-};
+const navbarItems: NavbarItems[] = [
+  {
+    label: "home",
+    href: "#home",
+  },
 
-function Navbar() {
+  {
+    label: "about",
+    href: "#about",
+  },
+
+  {
+    label: "projects",
+    href: "#projects",
+  },
+
+  {
+    label: "contact",
+    href: "#contact-me",
+  },
+];
+
+export default function Navbar() {
   const [english, setEnglish] = useState<boolean>(true);
   const [italian, setItalian] = useState<boolean>(false);
-
-  const navbarItems: NavbarItems[] = [
-    {
-      label: "home",
-      href: "#home",
-    },
-
-    {
-      label: "about",
-      href: "#about",
-    },
-
-    {
-      label: "projects",
-      href: "#projects",
-    },
-
-    {
-      label: "contact",
-      href: "#contact-me",
-    },
-  ];
 
   return (
     <>
@@ -106,15 +102,7 @@ function Navbar() {
   );
 }
 
-function Toggle({
-  language,
-  customClass,
-  customOnClick,
-}: {
-  language: string;
-  customClass?: string;
-  customOnClick: () => void;
-}) {
+function Toggle({ language, customClass, customOnClick }: ToggleProps) {
   const { i18n } = useTranslation();
 
   const handleTranslation = (code: string) => {
@@ -143,5 +131,3 @@ function NavbarElement({ label, href }: NavbarItems) {
     </li>
   );
 }
-
-export default Navbar;

@@ -1,34 +1,55 @@
 import LoadAnimation from "./load-animation";
 import Arrow from "./arrow";
 import Translate from "./translate";
+import { Image, ImageBoxProps } from "../types";
 
-type ImageBoxProps = {
-  idx: number;
-  src: string;
-  alt: string;
-  href: string;
-};
+const images: Image[] = [
+  {
+    src: "/tailwind.png",
+    alt: "Tailwind logo",
+    href: "https://tailwindcss.com/",
+  },
+  {
+    src: "/ts.png",
+    alt: "TypeScript logo",
+    href: "https://www.typescriptlang.org/",
+  },
+  {
+    src: "/react.png",
+    alt: "React logo",
+    href: "https://react.dev/",
+  },
+  {
+    src: "/git.png",
+    alt: "Git logo",
+    href: "https://git-scm.com/",
+  },
+  {
+    src: "/vscode.png",
+    alt: "VSCode logo",
+    href: "https://code.visualstudio.com/",
+  },
+  {
+    src: "/neovim.png",
+    alt: "Neovim logo",
+    href: "https://neovim.io/",
+  },
+];
 
-type Image = {
-  src: string;
-  alt: string;
-  href: string;
-};
-
-function About() {
+export default function About() {
   return (
     <div
       id="about"
       className="flex flex-col h-screen justify-center text-center items-center gap-3 p-3"
     >
-      <LoadAnimation animateWhenVisible delay={0.2}>
+      <LoadAnimation delay={0.2}>
         <AboutMeHeader />
       </LoadAnimation>
-      <LoadAnimation delay={0.4} animateWhenVisible>
+      <LoadAnimation delay={0.4}>
         <AboutMeDescription />
       </LoadAnimation>
       <ImagesComponent />
-      <LoadAnimation delay={0.6} animateWhenVisible>
+      <LoadAnimation delay={0.6}>
         <GoNextSection />
       </LoadAnimation>
     </div>
@@ -68,39 +89,6 @@ function AboutMeDescription() {
 }
 
 function ImagesComponent() {
-  const images: Image[] = [
-    {
-      src: "/tailwind.png",
-      alt: "Tailwind logo",
-      href: "https://tailwindcss.com/",
-    },
-    {
-      src: "/ts.png",
-      alt: "TypeScript logo",
-      href: "https://www.typescriptlang.org/",
-    },
-    {
-      src: "/react.png",
-      alt: "React logo",
-      href: "https://react.dev/",
-    },
-    {
-      src: "/git.png",
-      alt: "Git logo",
-      href: "https://git-scm.com/",
-    },
-    {
-      src: "/vscode.png",
-      alt: "VSCode logo",
-      href: "https://code.visualstudio.com/",
-    },
-    {
-      src: "/neovim.png",
-      alt: "Neovim logo",
-      href: "https://neovim.io/",
-    },
-  ];
-
   return (
     <div className="grid grid-cols-2 md:flex justify-center gap-5 mt-10">
       {images.map(({ href, src, alt }, idx) => (
@@ -112,7 +100,7 @@ function ImagesComponent() {
 
 function ImageBox({ idx, href, src, alt }: ImageBoxProps) {
   return (
-    <LoadAnimation delay={idx * 0.1} animateWhenVisible>
+    <LoadAnimation delay={idx * 0.1}>
       <a
         href={href}
         target="_blank"
@@ -138,5 +126,3 @@ function GoNextSection() {
     </Arrow>
   );
 }
-
-export default About;

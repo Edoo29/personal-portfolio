@@ -5,7 +5,7 @@ import Navbar from "../components/navbar";
 import Projects from "../components/projects";
 import ScrollProgress from "../components/scroll-progress";
 
-function Homepage() {
+export default function Homepage() {
   return (
     <>
       <ScrollProgress />
@@ -17,5 +17,3 @@ function Homepage() {
     </>
   );
 }
-
-export default Homepage;

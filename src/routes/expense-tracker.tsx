@@ -1,8 +1,16 @@
 import { Link } from "react-router-dom";
 import CopyrightBanner from "../components/copyright-banner";
 import { MoveLeft } from "lucide-react";
+import { ImagePreviewProps } from "../types";
 
-function ExpenseTracker() {
+const images: ImagePreviewProps[] = [
+  { src: "./blue.png", alt: "Blue theme preview" },
+  { src: "./yellow.png", alt: "Yellow theme preview" },
+  { src: "./green.png", alt: "Green theme preview" },
+  { src: "./purple.png", alt: "Purple theme preview" },
+];
+
+export default function ExpenseTracker() {
   return (
     <>
       <div className="p-3">
@@ -42,28 +50,15 @@ function ExpenseTracker() {
 function ShowImages() {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:p-10">
-      <img
-        className="h-40 lg:h-54 rounded"
-        src="./blue.png"
-        alt="Blue theme preview"
-      />
-      <img
-        className="h-40 lg:h-54 rounded"
-        src="./yellow.png"
-        alt="Yellow theme preview"
-      />
-      <img
-        className="h-40 lg:h-54 rounded"
-        src="./green.png"
-        alt="Green theme preview"
-      />
-      <img
-        className="h-40 lg:h-54 rounded"
-        src="./purple.png"
-        alt="Purple theme preview"
-      />
+      {images.map((image, idx) => (
+        <ImagePreview key={idx} {...image} />
+      ))}
     </div>
   );
 }
 
-export default ExpenseTracker;
+function ImagePreview({ src, alt }: ImagePreviewProps) {
+  return (
+    <img className="h-40 lg:h-54 rounded" src={src} alt={alt} loading="lazy" />
+  );
+}

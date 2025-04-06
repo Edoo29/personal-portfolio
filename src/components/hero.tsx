@@ -3,25 +3,25 @@ import LoadAnimation from "./load-animation";
 import Translate from "./translate";
 import { motion } from "motion/react";
 
-function Hero() {
+export default function Hero() {
   return (
     <section
       id="home"
       className="flex flex-col gap-3 justify-center items-center h-screen"
     >
-      <LoadAnimation delay={0.2} animateWhenVisible>
+      <LoadAnimation delay={0.2}>
         <Header />
       </LoadAnimation>
-      <LoadAnimation delay={0.4} animateWhenVisible>
+      <LoadAnimation delay={0.4}>
         <IntroText />
       </LoadAnimation>
-      <LoadAnimation delay={0.6} animateWhenVisible>
+      <LoadAnimation delay={0.6}>
         <Subtitle />
       </LoadAnimation>
-      <LoadAnimation delay={0.8} animateWhenVisible>
+      <LoadAnimation delay={0.8}>
         <Description />
       </LoadAnimation>
-      <LoadAnimation delay={1} animateWhenVisible>
+      <LoadAnimation delay={1}>
         <Arrow direction="down" reference="#about" customClass="mt-24">
           <Translate text="arrowOne" />
         </Arrow>
@@ -87,5 +87,3 @@ function Description() {
     </motion.p>
   );
 }
-
-export default Hero;
