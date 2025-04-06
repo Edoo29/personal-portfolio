@@ -60,21 +60,18 @@ function ShowEmailButton() {
   return (
     <button
       /*
-        TODO: Enable the button when you are ready to work,
-        removing the disabled attribute and the not avalaible text,
-        adding the real email, the cursor-pointer and the white text
+        TODO: Add the email address
       */
-      disabled
-      className="p-5 border-glass text-[var(--color-shadows)] cursor-not-allowed rounded-xl shadow-md glowing-effect"
+      className="p-5 border-glass text-[var(--color-shadows)] rounded-xl shadow-md glowing-effect"
       onClick={handleClick}
     >
-      <p>
-        ⚠️ <Translate text="notAvailable" /> ⚠️
-      </p>
       {showEmail ? (
-        <a href="example@gmail.com">example@gmail.com</a>
+        // <a href="example@gmail.com">example@gmail.com</a>
+        <span>
+          ⚠️ <Translate text="notAvailable" />
+        </span>
       ) : (
-        <p className="line-through">
+        <p>
           <Translate text="contactMeClickOne" /> {clicks}
           <Translate text="contactMeClickTwo" />
         </p>

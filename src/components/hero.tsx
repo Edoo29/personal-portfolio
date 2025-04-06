@@ -72,7 +72,7 @@ function Description() {
   return (
     <motion.p
       whileHover={{ scale: 1.1 }}
-      className="text-lg md:text-xl flex flex-col justify-center cursor-default items-center gap-1 mt-5 text-[var(--color-shadows)] p-5 text-center md:p-0"
+      className="text-lg md:text-xl flex flex-col justify-center cursor-default items-center gap-1 mt-2 md:mt-5 text-[var(--color-shadows)] p-5 text-center md:p-0"
     >
       <span>
         <Translate text="descriptionOne" />
