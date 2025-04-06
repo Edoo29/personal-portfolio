@@ -62,7 +62,7 @@ function ShowEmailButton() {
       /*
         TODO: Add the email address
       */
-      className="p-5 border-glass text-[var(--color-shadows)] rounded-xl shadow-md glowing-effect"
+      className="p-5 border-glass text-[var(--color-shadows)] rounded-xl shadow-md glowing-effect cursor-pointer"
       onClick={handleClick}
     >
       {showEmail ? (
