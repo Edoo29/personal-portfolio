@@ -6,7 +6,7 @@ import Translate from "../components/translate";
 import { LanguageSwitcher } from "../components/navbar";
 import { useEffect } from "react";
 
-const images: ImagePreviewProps[] = [
+const expenseTrackerImages: ImagePreviewProps[] = [
   { src: "./blue.png", alt: "Blue theme preview of Expense Tracker app" },
   { src: "./yellow.png", alt: "Yellow theme preview of Expense Tracker app" },
   { src: "./green.png", alt: "Green theme preview of Expense Tracker app" },
@@ -33,7 +33,7 @@ export default function ExpenseTracker() {
         <TechBadge text="Next.js + TypeScript + TailwindCSS" />
       </main>
       <section className="mt-5">
-        <ShowImages />
+        <ShowExpenseTrackerImages />
       </section>
       <footer className="text-white text-center p-10">
         ⚠️ <Translate text="expenseTrackerTextThree" /> ⚠️
@@ -49,7 +49,7 @@ export default function ExpenseTracker() {
   );
 }
 
-function BackLink() {
+export function BackLink() {
   return (
     <div className="p-3">
       <Link
@@ -63,7 +63,7 @@ function BackLink() {
   );
 }
 
-function TechBadge({ text }: { text: string }) {
+export function TechBadge({ text }: { text: string }) {
   return (
     <p className="bg-[var(--purple)] px-5 py-2 rounded text-white text-sm md:text-base">
       {text}
@@ -71,17 +71,17 @@ function TechBadge({ text }: { text: string }) {
   );
 }
 
-function ShowImages() {
+function ShowExpenseTrackerImages() {
   return (
     <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:p-10">
-      {images.map((image, idx) => (
+      {expenseTrackerImages.map((image, idx) => (
         <ImagePreview key={idx} {...image} />
       ))}
     </div>
   );
 }
 
-function ImagePreview({ src, alt }: ImagePreviewProps) {
+export function ImagePreview({ src, alt }: ImagePreviewProps) {
   return (
     <img
       className="h-40 lg:h-54 rounded shadow-lg"
@@ -92,7 +92,7 @@ function ImagePreview({ src, alt }: ImagePreviewProps) {
   );
 }
 
-function ScrollToTop() {
+export function ScrollToTop() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);

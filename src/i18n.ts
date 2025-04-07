@@ -58,6 +58,8 @@ i18n.use(initReactI18next).init({
           "It also includes a login system to secure your data.",
         expenseTrackerTextThree:
           "Unfortunately, I lost the source code and I can't show you the dashboard preview, sorry",
+        boilerflowTextOne:
+          "It contains many commands to set the project name and which boilerplate to use.",
       },
     },
     it: {
@@ -109,6 +111,8 @@ i18n.use(initReactI18next).init({
           "Inoltre include un sistema di login per proteggere i tuoi dati.",
         expenseTrackerTextThree:
           "Sfortunatamente, ho perso il codice sorgente e non posso mostrarti la preview della dashboard, scusate",
+        boilerflowTextOne:
+          "Esso contiene numerosi comandi per impostare il nome del progetto e quale boilerplate usare.",
       },
     },
   },
