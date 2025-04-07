@@ -9,20 +9,23 @@ export default function ContactMe() {
     <>
       <div className="flex flex-col items-center justify-center gap-6 p-3 h-screen">
         <div className="flex flex-col gap-3 justify-center items-center">
-          <LoadAnimation>
+          <LoadAnimation delay={0.2}>
             <ContactMeTitle />
           </LoadAnimation>
-          <LoadAnimation delay={0.2}>
+
+          <LoadAnimation delay={0.4}>
             <ContactMeDescription />
           </LoadAnimation>
         </div>
-        <LoadAnimation delay={0.4}>
+        <LoadAnimation delay={0.6}>
           <ShowEmailButton />
         </LoadAnimation>
-        <LoadAnimation delay={0.6}>
+
+        <LoadAnimation delay={0.8}>
           <GoBack />
         </LoadAnimation>
       </div>
+
       <div id="contact-me">
         <CopyrightBanner />
       </div>

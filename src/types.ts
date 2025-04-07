@@ -1,5 +1,4 @@
 export type TechnologyItemProps = {
-  idx: number;
   src: string;
   alt: string;
   href: string;

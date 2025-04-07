@@ -3,33 +3,25 @@ import CopyrightBanner from "../components/copyright-banner";
 import { MoveLeft } from "lucide-react";
 import { ImagePreviewProps } from "../types";
 import Translate from "../components/translate";
-import {
-  TranslateLanguageButton,
-  TranslateLanguageButtonMobile,
-} from "../components/navbar";
+import { LanguageSwitcher } from "../components/navbar";
+import { useEffect } from "react";
 
 const images: ImagePreviewProps[] = [
-  { src: "./blue.png", alt: "Blue theme preview" },
-  { src: "./yellow.png", alt: "Yellow theme preview" },
-  { src: "./green.png", alt: "Green theme preview" },
-  { src: "./purple.png", alt: "Purple theme preview" },
+  { src: "./blue.png", alt: "Blue theme preview of Expense Tracker app" },
+  { src: "./yellow.png", alt: "Yellow theme preview of Expense Tracker app" },
+  { src: "./green.png", alt: "Green theme preview of Expense Tracker app" },
+  { src: "./purple.png", alt: "Purple theme preview of Expense Tracker app" },
 ];
 
 export default function ExpenseTracker() {
   return (
     <>
-      <div className="p-3">
-        <Link
-          className="flex gap-2 absolute text-[var(--color-shadows)] hover:text-white"
-          to={"/"}
-        >
-          <MoveLeft />
-          <Translate text="back" />
-        </Link>
-      </div>
-      <div className="flex flex-col items-center justify-center mt-5 p-3 gap-5">
+      <ScrollToTop /> {/* It will scroll to top on the page load */}
+      <BackLink />
+      <main className="flex flex-col items-center justify-center mt-5 p-3 gap-5">
         <h1 className="text-4xl text-white font-bold">Expense Tracker</h1>
-        <section className="text-center text-[var(--color-shadows)]">
+
+        <section className="text-center text-[var(--color-shadows)] space-y-2">
           <p>
             <Translate text="expenseTrackerTextOne" />
           </p>
@@ -37,24 +29,45 @@ export default function ExpenseTracker() {
             <Translate text="expenseTrackerTextTwo" />
           </p>
         </section>
-        <p className="bg-[var(--purple)] p-3 rounded text-white">
-          Next.js + TypeScript + TailwindCSS
-        </p>
-      </div>
-      <div className="mt-5">
+
+        <TechBadge text="Next.js + TypeScript + TailwindCSS" />
+      </main>
+      <section className="mt-5">
         <ShowImages />
-      </div>
-      <p className="text-white text-center p-10">
+      </section>
+      <footer className="text-white text-center p-10">
         ⚠️ <Translate text="expenseTrackerTextThree" /> ⚠️
-      </p>
-      <div className="hidden md:flex">
-        <TranslateLanguageButton />
+      </footer>
+      <div className="hidden md:block">
+        <LanguageSwitcher position="top" />
       </div>
-      <div className="flex md:hidden">
-        <TranslateLanguageButtonMobile />
+      <div className="block md:hidden">
+        <LanguageSwitcher position="bottom" />
       </div>
       <CopyrightBanner customClass="md:bottom-0" />
     </>
+  );
+}
+
+function BackLink() {
+  return (
+    <div className="p-3">
+      <Link
+        to="/"
+        className="flex gap-2 absolute text-[var(--color-shadows)] hover:text-white transition-all"
+      >
+        <MoveLeft />
+        <Translate text="back" />
+      </Link>
+    </div>
+  );
+}
+
+function TechBadge({ text }: { text: string }) {
+  return (
+    <p className="bg-[var(--purple)] px-5 py-2 rounded text-white text-sm md:text-base">
+      {text}
+    </p>
   );
 }
 
@@ -70,6 +83,19 @@ function ShowImages() {
 
 function ImagePreview({ src, alt }: ImagePreviewProps) {
   return (
-    <img className="h-40 lg:h-54 rounded" src={src} alt={alt} loading="lazy" />
+    <img
+      className="h-40 lg:h-54 rounded shadow-lg"
+      src={src}
+      alt={alt}
+      loading="lazy"
+    />
   );
+}
+
+function ScrollToTop() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return null;
 }

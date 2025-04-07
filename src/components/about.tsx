@@ -3,7 +3,7 @@ import Arrow from "./arrow";
 import Translate from "./translate";
 import { Image, TechnologyItemProps } from "../types";
 
-const images: Image[] = [
+const technologies: Image[] = [
   {
     src: "/tailwind.png",
     alt: "Tailwind logo",
@@ -14,55 +14,40 @@ const images: Image[] = [
     alt: "TypeScript logo",
     href: "https://www.typescriptlang.org/",
   },
-  {
-    src: "/react.png",
-    alt: "React logo",
-    href: "https://react.dev/",
-  },
-  {
-    src: "/git.png",
-    alt: "Git logo",
-    href: "https://git-scm.com/",
-  },
+  { src: "/react.png", alt: "React logo", href: "https://react.dev/" },
+  { src: "/git.png", alt: "Git logo", href: "https://git-scm.com/" },
   {
     src: "/vscode.png",
     alt: "VSCode logo",
     href: "https://code.visualstudio.com/",
   },
-  {
-    src: "/neovim.png",
-    alt: "Neovim logo",
-    href: "https://neovim.io/",
-  },
+  { src: "/neovim.png", alt: "Neovim logo", href: "https://neovim.io/" },
 ];
 
 export default function About() {
   return (
-    <div
+    <section
       id="about"
       className="flex flex-col h-screen justify-center text-center items-center gap-3 p-3"
     >
       <LoadAnimation delay={0.2}>
-        <AboutMeHeader />
+        <h2 className="text-4xl text-white">
+          <Translate text="aboutMe" />
+        </h2>
       </LoadAnimation>
 
       <LoadAnimation delay={0.4}>
         <AboutMeDescription />
       </LoadAnimation>
 
-      <TechnologyGrid />
-      <LoadAnimation delay={0.6}>
-        <GoNextSection />
-      </LoadAnimation>
-    </div>
-  );
-}
+      <TechnologyGrid items={technologies} />
 
-function AboutMeHeader() {
-  return (
-    <h2 className="text-4xl text-white">
-      <Translate text="aboutMe" />
-    </h2>
+      <LoadAnimation delay={0.6}>
+        <Arrow direction="down" customClass="mt-24" reference="#projects">
+          <Translate text="arrowTwo" />
+        </Arrow>
+      </LoadAnimation>
+    </section>
   );
 }
 
@@ -72,6 +57,7 @@ function AboutMeDescription() {
       <span>
         <Translate text="aboutMeOne" />
       </span>
+
       <span>
         <Translate text="aboutMeTwo" />
         <span className="text-[var(--purple)]">
@@ -79,6 +65,7 @@ function AboutMeDescription() {
         </span>
         <Translate text="aboutMeFour" />
       </span>
+
       <span>
         <Translate text="aboutMeFive" />
         <span className="text-[var(--purple)]">
@@ -90,22 +77,23 @@ function AboutMeDescription() {
   );
 }
 
-function TechnologyGrid() {
+function TechnologyGrid({ items }: { items: Image[] }) {
   return (
     <div className="grid grid-cols-2 md:flex justify-center gap-5 mt-10">
-      {images.map(({ href, src, alt }, idx) => (
-        <TechnologyItem key={idx} idx={idx} src={src} alt={alt} href={href} />
+      {items.map((tech) => (
+        <TechnologyItem key={tech.href} {...tech} />
       ))}
     </div>
   );
 }
 
-function TechnologyItem({ idx, href, src, alt }: TechnologyItemProps) {
+function TechnologyItem({ href, src, alt }: TechnologyItemProps) {
   return (
-    <LoadAnimation delay={idx * 0.1}>
+    <LoadAnimation delay={Math.random() * 0.5}>
       <a
         href={href}
         target="_blank"
+        rel="noopener noreferrer"
         className="p-5 border-glass rounded-xl shadow-md backdrop-blur-md glowing-effect cursor-pointer flex items-center justify-center"
       >
         <img
@@ -118,13 +106,5 @@ function TechnologyItem({ idx, href, src, alt }: TechnologyItemProps) {
         />
       </a>
     </LoadAnimation>
-  );
-}
-
-function GoNextSection() {
-  return (
-    <Arrow direction="down" customClass="mt-24" reference="#projects">
-      <Translate text="arrowTwo" />
-    </Arrow>
   );
 }
