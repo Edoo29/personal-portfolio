@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import CopyrightBanner from "../components/copyright-banner";
 import { MoveLeft } from "lucide-react";
 import { ImagePreviewProps } from "../types";
+import Translate from "../components/translate";
+import { TranslateLanguageButton } from "../components/navbar";
 
 const images: ImagePreviewProps[] = [
   { src: "./blue.png", alt: "Blue theme preview" },
@@ -19,17 +21,18 @@ export default function ExpenseTracker() {
           to={"/"}
         >
           <MoveLeft />
-          Back
+          <Translate text="back" />
         </Link>
       </div>
       <div className="flex flex-col items-center justify-center mt-5 p-3 gap-5">
         <h1 className="text-4xl text-white font-bold">Expense Tracker</h1>
         <section className="text-center text-[var(--color-shadows)]">
           <p>
-            This web app allows you to track your expenses and manage your
-            budget.
+            <Translate text="expenseTrackerTextOne" />
           </p>
-          <p>It also includes a login system to secure your data.</p>
+          <p>
+            <Translate text="expenseTrackerTextTwo" />
+          </p>
         </section>
         <p className="bg-[var(--purple)] p-3 rounded text-white">
           Next.js + TypeScript + TailwindCSS
@@ -39,9 +42,9 @@ export default function ExpenseTracker() {
         <ShowImages />
       </div>
       <p className="text-white text-center p-10">
-        ⚠️ Unfortunately, I lost the source code and I can't show you the
-        dashboard preview, sorry ⚠️
+        ⚠️ <Translate text="expenseTrackerTextThree" /> ⚠️
       </p>
+      <TranslateLanguageButton />
       <CopyrightBanner customClass="md:bottom-0" />
     </>
   );

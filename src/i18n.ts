@@ -51,6 +51,13 @@ i18n.use(initReactI18next).init({
         boilerflowDescription:
           "Boilerflow is a CLI tool which contains a lot of useful boilerplates",
         readMore: "Read more",
+        back: "Back",
+        expenseTrackerTextOne:
+          "This web app allows you to track your expenses and manage your budget.",
+        expenseTrackerTextTwo:
+          "It also includes a login system to secure your data.",
+        expenseTrackerTextThree:
+          "Unfortunately, I lost the source code and I can't show you the dashboard preview, sorry",
       },
     },
     it: {
@@ -95,6 +102,13 @@ i18n.use(initReactI18next).init({
         boilerflowDescription:
           "Boilerflow è un tool CLI che contiene molti boileplate utili",
         readMore: "Scopri di più",
+        back: "Indietro",
+        expenseTrackerTextOne:
+          "Questa web app ti permette di tenere traccia delle tue spese e gestire il tuo budget.",
+        expenseTrackerTextTwo:
+          "Inoltre include un sistema di login per proteggere i tuoi dati.",
+        expenseTrackerTextThree:
+          "Sfortunatamente, ho perso il codice sorgente e non posso mostrarti la preview della dashboard, scusate",
       },
     },
   },

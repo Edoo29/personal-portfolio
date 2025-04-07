@@ -28,9 +28,6 @@ const navbarItems: NavbarItems[] = [
 ];
 
 export default function Navbar() {
-  const [english, setEnglish] = useState<boolean>(true);
-  const [italian, setItalian] = useState<boolean>(false);
-
   return (
     <>
       <LoadAnimation delay={0.2}>
@@ -49,24 +46,7 @@ export default function Navbar() {
               <NavbarElement key={item.label} {...item} />
             ))}
           </ul>
-          <div className="flex gap-5 fixed right-0 top-0 mt-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md z-10">
-            <Toggle
-              customOnClick={() => {
-                setItalian(!italian);
-                setEnglish(!english);
-              }}
-              customClass={english ? "text-white" : ""}
-              language="English"
-            />
-            <Toggle
-              customOnClick={() => {
-                setEnglish(!english);
-                setItalian(!italian);
-              }}
-              customClass={italian ? "text-white" : ""}
-              language="Italian"
-            />
-          </div>
+          <TranslateLanguageButton />
         </nav>
         <nav className="flex md:hidden text-[var(--color-shadows)]">
           <a
@@ -78,27 +58,62 @@ export default function Navbar() {
           >
             <Github />
           </a>
-          <div className="flex gap-5 fixed right-0 bottom-0 mb-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md z-10">
-            <Toggle
-              customOnClick={() => {
-                setItalian(!italian);
-                setEnglish(!english);
-              }}
-              customClass={english ? "text-white" : ""}
-              language="English"
-            />
-            <Toggle
-              customOnClick={() => {
-                setEnglish(!english);
-                setItalian(!italian);
-              }}
-              customClass={italian ? "text-white" : ""}
-              language="Italian"
-            />
-          </div>
+          <TranslateLanguageButtonMobile />
         </nav>
       </LoadAnimation>
     </>
+  );
+}
+
+export function TranslateLanguageButton() {
+  const [english, setEnglish] = useState<boolean>(true);
+  const [italian, setItalian] = useState<boolean>(false);
+
+  return (
+    <div className="flex gap-5 fixed right-0 top-0 mt-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md z-10">
+      <Toggle
+        customOnClick={() => {
+          setItalian(!italian);
+          setEnglish(!english);
+        }}
+        customClass={english ? "text-white" : ""}
+        language="English"
+      />
+      <Toggle
+        customOnClick={() => {
+          setEnglish(!english);
+          setItalian(!italian);
+        }}
+        customClass={italian ? "text-white" : ""}
+        language="Italian"
+      />
+    </div>
+  );
+}
+
+function TranslateLanguageButtonMobile() {
+  const [english, setEnglish] = useState<boolean>(true);
+  const [italian, setItalian] = useState<boolean>(false);
+
+  return (
+    <div className="flex gap-5 fixed right-0 bottom-0 mb-5 mr-5 p-3 border-glass rounded-xl backdrop-blur-md z-10">
+      <Toggle
+        customOnClick={() => {
+          setItalian(!italian);
+          setEnglish(!english);
+        }}
+        customClass={english ? "text-white" : ""}
+        language="English"
+      />
+      <Toggle
+        customOnClick={() => {
+          setEnglish(!english);
+          setItalian(!italian);
+        }}
+        customClass={italian ? "text-white" : ""}
+        language="Italian"
+      />
+    </div>
   );
 }
 
@@ -115,7 +130,7 @@ function Toggle({ language, customClass, customOnClick }: ToggleProps) {
         customOnClick();
         handleTranslation(language.slice(0, 2).toLocaleLowerCase());
       }}
-      className={`${customClass} cursor-pointer hover:underline`}
+      className={`${customClass} text-[var(--color-shadows)] cursor-pointer hover:underline`}
     >
       <Translate text={language} />
     </button>
