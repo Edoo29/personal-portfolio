@@ -1,7 +1,7 @@
 import LoadAnimation from "./load-animation";
 import Arrow from "./arrow";
 import Translate from "./translate";
-import { Image, ImageBoxProps } from "../types";
+import { Image, TechnologyItemProps } from "../types";
 
 const images: Image[] = [
   {
@@ -45,10 +45,12 @@ export default function About() {
       <LoadAnimation delay={0.2}>
         <AboutMeHeader />
       </LoadAnimation>
+
       <LoadAnimation delay={0.4}>
         <AboutMeDescription />
       </LoadAnimation>
-      <ImagesComponent />
+
+      <TechnologyGrid />
       <LoadAnimation delay={0.6}>
         <GoNextSection />
       </LoadAnimation>
@@ -88,17 +90,17 @@ function AboutMeDescription() {
   );
 }
 
-function ImagesComponent() {
+function TechnologyGrid() {
   return (
     <div className="grid grid-cols-2 md:flex justify-center gap-5 mt-10">
       {images.map(({ href, src, alt }, idx) => (
-        <ImageBox key={idx} idx={idx} src={src} alt={alt} href={href} />
+        <TechnologyItem key={idx} idx={idx} src={src} alt={alt} href={href} />
       ))}
     </div>
   );
 }
 
-function ImageBox({ idx, href, src, alt }: ImageBoxProps) {
+function TechnologyItem({ idx, href, src, alt }: TechnologyItemProps) {
   return (
     <LoadAnimation delay={idx * 0.1}>
       <a

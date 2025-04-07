@@ -1,4 +1,4 @@
-export type ImageBoxProps = {
+export type TechnologyItemProps = {
   idx: number;
   src: string;
   alt: string;
