@@ -91,7 +91,7 @@ export function TranslateLanguageButton() {
   );
 }
 
-function TranslateLanguageButtonMobile() {
+export function TranslateLanguageButtonMobile() {
   const [english, setEnglish] = useState<boolean>(true);
   const [italian, setItalian] = useState<boolean>(false);
 

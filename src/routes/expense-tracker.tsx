@@ -3,7 +3,10 @@ import CopyrightBanner from "../components/copyright-banner";
 import { MoveLeft } from "lucide-react";
 import { ImagePreviewProps } from "../types";
 import Translate from "../components/translate";
-import { TranslateLanguageButton } from "../components/navbar";
+import {
+  TranslateLanguageButton,
+  TranslateLanguageButtonMobile,
+} from "../components/navbar";
 
 const images: ImagePreviewProps[] = [
   { src: "./blue.png", alt: "Blue theme preview" },
@@ -44,7 +47,12 @@ export default function ExpenseTracker() {
       <p className="text-white text-center p-10">
         ⚠️ <Translate text="expenseTrackerTextThree" /> ⚠️
       </p>
-      <TranslateLanguageButton />
+      <div className="hidden md:flex">
+        <TranslateLanguageButton />
+      </div>
+      <div className="flex md:hidden">
+        <TranslateLanguageButtonMobile />
+      </div>
       <CopyrightBanner customClass="md:bottom-0" />
     </>
   );
