@@ -92,7 +92,7 @@ function Toggle({
     <button
       onClick={onClick}
       className={`${
-        active ? "text-white underline" : "text-[var(--color-shadows)]"
+        active ? "text-white" : "text-[var(--color-shadows)]"
       } cursor-pointer hover:underline transition-all`}
       aria-pressed={active}
     >
